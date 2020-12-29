@@ -26,3 +26,28 @@ const marcasLowerCase = marcas.map( (marca) => {
 });
 
 console.log(marcasLowerCase);
+
+const numerosAleatorios = [1,2,3,4,5,6];
+
+numerosDobrados = numerosAleatorios.map( (num) => {
+    return num * 2;
+});
+
+console.log(numerosDobrados);
+
+/** Exemplo de gerador para números aleatórios sem repetição */
+numerosMega = numerosAleatorios.map( (num, index, lista) => {
+    let novoNum = (Math.random() * 60).toFixed();
+    while(lista.find(item => item == novoNum) || novoNum == 0) {
+        //console.log('ja tem', novoNum, lista);
+        novoNum = (Math.random() * 60).toFixed();
+    }
+    lista[index] = novoNum;
+    return novoNum;
+});
+
+// Ordena os números do array em ordem ascendente :)
+numerosMega = numerosMega.sort((a, b) => (a-b));
+
+console.log('Seus números da sorte são: ', numerosMega);
+
