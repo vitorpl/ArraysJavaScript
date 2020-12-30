@@ -51,3 +51,65 @@ numerosMega = numerosMega.sort((a, b) => (a-b));
 
 console.log('Seus números da sorte são: ', numerosMega);
 
+const listaN = [1,2,3,4,5];
+
+listaX3 = listaN.map(n => n * 3);
+console.log(listaX3);
+
+
+/** REDUCE 
+ * recebe uma função com os seguintes parâmetros (acumulador, valorAtual, indice, array) 
+ * pode ainda receber o valor inicial no segundo parâmetro
+ * 
+ * existe ainda o reduceRight que itera da direita para a esquerda ou seja do final do array ao início.
+*/
+
+const numeros = [2, 4, 6];
+
+const soma = numeros.reduce( (acc, atual) => acc + atual);
+//const soma = numeros.reduce( (acc, atual) => acc + atual, 8 ); // começando com 8 por exemplo retorna 20
+
+console.log(soma);
+
+
+const maiorValor = numeros.reduce( (prev, atual) => {
+    return prev > atual? prev : atual;
+});
+
+console.log(maiorValor);
+
+
+/** SOME
+ * Se pelo menos um item da iteração retornar true, retorna true
+ */
+const cidades = ['Curitiba', 'Joinville', 'São Paulo'];
+
+const temJoinville = cidades.some( item => item == 'Joinville');
+console.log(temJoinville);
+
+/** EVERY 
+ * Todas as iterações devem retornar true para ser true
+*/
+const todosString = cidades.every( (cid) => {
+    return isNaN(cid);
+} );
+console.log(todosString);
+
+
+/** FIND
+ * Retorna o elemento quando quando retornar true da função de callback
+ */
+const outrosNumeros = [2,4,8,9,20];
+const primeiroMaiorQue7 = outrosNumeros.find( n => n > 7 );
+console.log(primeiroMaiorQue7);
+
+const primeiroIndexMaiorQue7 = outrosNumeros.findIndex( n => n > 7 );
+console.log(primeiroIndexMaiorQue7);
+
+/** FILTER 
+ * Retorna array com todos que foram true
+*/
+
+const maioresQue7 = outrosNumeros.filter( n => n > 7 );
+console.log(maioresQue7);
+
